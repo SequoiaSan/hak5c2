@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+  c2:
+    build:
+      dockerfile: $PWD/app/Dockerfile
+      context: $PWD
+    ports:
+      - "2022:2022"
+      - "443:443"
+      - "80:80"
+    hostname: ${HOSTNAME}
+    network_mode: bridge
+    restart: always
+    volumes:
+      - ./cert:/cert
+      - ./c2DB:/db
+    environment:
+      DB: ${DB}
+      HOSTNAME: ${HOSTNAME}
+      HTTPS: ${HTTPS}
+      KEYFILE: ${KEYFILE}
+      CERTFILE: ${CERTFILE}
+      LISTENIP: ${LISTENIP}
+      LISTENPORT: ${LISTENPORT}
+      REVERSEPROXY: ${REVERSEPROXY}
+      REVERSEPROXYPORT: ${REVERSEPROXYPORT}
+      SSHPORT: ${SSHPORT}
