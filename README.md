@@ -40,8 +40,8 @@ In case you want to start over fresh remove the files in the _c2DB_ and the _cer
 ## Deployment options
 
 There are three TLS Options:
-* Self signed cert using the cetificate files predefined through the _.env_ files
+* Self signed cert using the cetificate files created during container launch predefined through the _.env_ files
 * Reverseproxy using the _.env_ config Options
 * LetsEncrypt cert by deleting the predefined _KEYFILE_ and _CERTFILE_ values. -> Keep in Mind that port 80/tcp and 443/tcp need to be reachable (mind NAT and firewalls) for the certificate generation by the LetsEncrypt bot. Also a valid domain is needed.
 
-Of course an unencrypted deployment is possible by removing the _HTTP_ variable.
+Of course an unencrypted deployment is possible by removing the _HTTPS_ variable.
